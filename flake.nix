@@ -19,7 +19,12 @@
     }:
     let
       # Helpers for producing system-specific outputs
-      supportedSystems = [ "aarch64-darwin" ];
+      supportedSystems = [
+        "aarch64-darwin"
+        "x86_64-darwin"
+        "x86_64-linux"
+        "aarch64-linux"
+      ];
       forEachSupportedSystem =
         f:
         nixpkgs.lib.genAttrs supportedSystems (
