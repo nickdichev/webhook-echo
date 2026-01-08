@@ -38,11 +38,9 @@
         {
           default = pkgs.buildGoModule {
             pname = "webhook-echo";
-            version = "0.1.0";
+            version = "0.2.0";
             src = ./.;
-            vendorHash = "sha256-4n3Z3dsP2GtJ9Qdq/v71EjRc4yJYxB7sId9PwIfptjY=";
-
-            buildInputs = [ pkgs.sqlite ];
+            vendorHash = null;
           };
         }
       );
@@ -61,12 +59,10 @@
         { pkgs }:
         {
           default = pkgs.mkShell {
-            packages = with pkgs; [
+            packages = [
               pkgs.go
               pkgs.gopls
               pkgs.go-tools
-
-              pkgs.sqlite
             ];
           };
         }
